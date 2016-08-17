@@ -12,7 +12,10 @@ import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
 import controller.HomeController;
+import controller.LoginController;
 import controller.Controller;
+import controller.DescController;
+import controller.DoLoginController;
 
 public class MyApplication {
 
@@ -41,6 +44,9 @@ public class MyApplication {
         
         /*4、针对不同的url实例化不同的业务控制器*/
         this.controllersByURL = new HashMap<String, Controller>();
+        this.controllersByURL.put("/login", new LoginController());
+        this.controllersByURL.put("/doLogin", new DoLoginController());
+        this.controllersByURL.put("/desc", new DescController());
         this.controllersByURL.put("/", new HomeController());
     }
     

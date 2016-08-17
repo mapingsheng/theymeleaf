@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.thymeleaf.ITemplateEngine;
 import org.thymeleaf.context.WebContext;
 
-public class HomeController implements Controller{
+public class DoLoginController implements Controller{
 	 
-    public HomeController() {
+    public DoLoginController() {
         super();
     }
     
@@ -20,9 +20,13 @@ public class HomeController implements Controller{
             final ServletContext servletContext, final ITemplateEngine templateEngine)
             throws Exception {
         
+    	String username = request.getParameter("username");
+    	String password = request.getParameter("password");
+    	
         WebContext ctx = new WebContext(request, response, servletContext, request.getLocale());
-        ctx.setVariable("today", Calendar.getInstance());//thymeleaf的上下文中设置变量数据
+        ctx.setVariable("username", username);
+        ctx.setVariable("password", password);
         
-        templateEngine.process("home", ctx, response.getWriter());//模板引擎转向到对应的模板页面
+        templateEngine.process("desc", ctx, response.getWriter());//模板引擎转向到对应的模板页面
     }
 }
