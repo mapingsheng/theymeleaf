@@ -1,0 +1,8 @@
+entity\User.class
+application\MyApplication.class
+controller\HomeController.class
+controller\LoginController.class
+controller\Controller.class
+filter\MyFilter.class
+controller\DescController.class
+controller\DoLoginController.class
